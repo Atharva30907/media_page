@@ -100,3 +100,8 @@ python app.py
 - The SQLite database (`ngo_media.db`) is auto-created with sample data on first run.
 - Uploaded images are saved in `static/uploads/images/`.
 - To add YouTube videos, use the embed URL format: `https://www.youtube.com/embed/VIDEO_ID`
+
+---
+
+## Author
+**Atharva Patil**

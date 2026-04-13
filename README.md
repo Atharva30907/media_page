@@ -52,8 +52,8 @@ python app.py
 ## 🔐 Admin Credentials
 | Field    | Value      |
 |----------|------------|
-| Username | `admin`    |
-| Password | `admin123` |
+| Username | `Atharva`  |
+| Password | `3007`     |
 
 ---
 

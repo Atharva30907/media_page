@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — HopeNGO</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a; --moss: #2d5a3d; --sage: #5a8a6a;
+    --cream: #f5f0e8; --gold: #c9a84c; --amber: #e8b84b;
+    --charcoal: #2a2a2a; --muted: #6b7280; --red: #dc2626;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--forest) 0%, #0d2118 100%);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .login-card {
+    background: #fff; border-radius: 20px; padding: 3rem 2.5rem;
+    width: 100%; max-width: 420px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  }
+  .login-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--forest); margin-bottom: 0.3rem; }
+  .login-sub { color: var(--muted); font-size: 0.88rem; margin-bottom: 2rem; }
+  .alert-error { background: #fee2e2; color: var(--red); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.88rem; margin-bottom: 1.2rem; border: 1px solid #fca5a5; }
+  .form-group { margin-bottom: 1.3rem; }
+  label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--charcoal); letter-spacing: 0.05em; margin-bottom: 0.45rem; }
+  input {
+    width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e5e7eb; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--charcoal);
+    transition: border-color 0.2s; outline: none;
+  }
+  input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(90,138,106,0.15); }
+  .login-btn {
+    width: 100%; background: var(--forest); color: #fff; border: none; padding: 0.85rem;
+    border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em;
+  }
+  .login-btn:hover { background: var(--moss); }
+  .hint { margin-top: 1.2rem; text-align: center; font-size: 0.8rem; color: var(--muted); background: #f9fafb; border-radius: 8px; padding: 0.75rem; }
+  .hint code { font-size: 0.82rem; color: var(--forest); font-weight: 600; }
+  .back-link { display: block; text-align: center; margin-top: 1.2rem; color: var(--sage); font-size: 0.85rem; text-decoration: none; }
+  .back-link:hover { color: var(--forest); }
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="login-logo">🌿 HopeNGO</div>
+  <div class="login-sub">Admin Portal — Secure Sign In</div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="alert-error">⚠ {{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  <form method="POST" action="/admin/login">
+    <div class="form-group">
+      <label for="username">USERNAME</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required autofocus>
+    </div>
+    <div class="form-group">
+      <label for="password">PASSWORD</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required>
+    </div>
+    <button type="submit" class="login-btn">Sign In to Dashboard →</button>
+  </form>
+
+
+  <a href="/" class="back-link">← Back to Media Page</a>
+</div>
+</body>
+</html>
